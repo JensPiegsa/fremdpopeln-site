@@ -22,6 +22,7 @@ body { font-family: 'Segoe UI', Arial, sans-serif; color: var(--dark); line-heig
 .btn { display: inline-block; background: var(--green); color: #fff; text-decoration: none; font-weight: 700; font-size: 1.1rem; padding: .7rem 1.5rem .7rem 1rem; border-radius: 999px; box-shadow: 0 4px 12px rgba(42,122,59,.35); margin-top: .4rem; }
 .btn:hover { background: #23662f; }
 .btn-off { opacity: .6; cursor: not-allowed; pointer-events: none; }
+.ton { position: fixed; right: 1rem; bottom: 1rem; z-index: 3; width: 3rem; height: 3rem; border-radius: 50%; border: 0; background: rgba(255,253,247,.9); font-size: 1.5rem; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,.3); }
 .price { display: block; font-size: .9rem; color: var(--muted); margin-top: .4rem; }
 .langs { color: var(--muted); font-size: .85rem; margin-top: .8rem; }
 footer { font-size: .75rem; color: #ddd; padding: .5rem 0 0; text-align: center; text-shadow: 0 1px 3px rgba(0,0,0,.6); }
@@ -48,5 +49,10 @@ footer a { color: #ddd; }
   </section>
   <footer><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a> · © 2026 fremdpopeln.de</footer>
 </div>
+<button id="ton" class="ton" aria-label="Ton einschalten" title="Ton einschalten">🔇</button>
+<script>
+const v = document.querySelector("video.bg"), t = document.getElementById("ton");
+t.addEventListener("click", () => { v.muted = !v.muted; if (!v.muted) v.play(); t.textContent = v.muted ? "🔇" : "🔊"; t.title = t.ariaLabel = v.muted ? "Ton einschalten" : "Ton ausschalten"; });
+</script>
 </body>
 </html>
