@@ -10,7 +10,8 @@
 * { box-sizing: border-box; }
 html, body { margin: 0; height: 100%; overflow: hidden; }
 body { font-family: 'Segoe UI', Arial, sans-serif; color: var(--dark); line-height: 1.5; background: #111; }
-.bg { position: fixed; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+.bgfill { position: fixed; inset: -40px; background: url(cover.png) center/cover no-repeat; filter: blur(24px) brightness(.8); z-index: 0; }
+.bg { position: fixed; inset: 0; width: 100%; height: 100%; object-fit: contain; object-position: center top; z-index: 0; }
 .sr { position: absolute; left: -9999px; }
 .overlay { position: relative; z-index: 1; height: 100vh; height: 100dvh; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; padding: 1rem; }
 .card { background: rgba(255,253,247,.92); border-radius: 18px; padding: .9rem 1.2rem; max-height: calc(100% - 3rem); overflow: auto; max-width: 640px; width: 100%; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,.35); backdrop-filter: blur(4px); }
@@ -27,6 +28,7 @@ footer a { color: #ddd; }
 </style>
 </head>
 <body>
+<div class="bgfill" aria-hidden="true"></div>
 <video class="bg" src="fremdpopeln-werbung.mp4" poster="cover.png" autoplay muted loop playsinline aria-hidden="true"></video>
 <h1 class="sr">Fremdpopeln: Das Nasen-Ratespiel für Kinder von 5 bis 12</h1>
 <div class="overlay">
