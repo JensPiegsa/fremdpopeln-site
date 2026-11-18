@@ -10,7 +10,7 @@
 * { box-sizing: border-box; }
 body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; color: var(--dark); background: var(--bg); line-height: 1.5; }
 .wrap { max-width: 1000px; margin: 0 auto; padding: 1.25rem; }
-header { text-align: center; padding-top: .5rem; }
+.sr { position: absolute; left: -9999px; }
 h1 { font-size: clamp(2.2rem, 8vw, 4rem); margin: 0; color: var(--green); }
 .tag { font-size: clamp(1rem, 3.5vw, 1.35rem); color: var(--muted); margin-top: .25rem; }
 .hero { display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-top: 1rem; }
@@ -32,10 +32,7 @@ footer a { color: var(--muted); }
 </head>
 <body>
 <div class="wrap">
-<header>
-  <h1>👃🏻👃🏽👃🏿 Fremdpopeln 🤏</h1>
-  <div class="tag">Das Nasen-Ratespiel für Kinder von 5 bis 12</div>
-</header>
+<h1 class="sr">Fremdpopeln: Das Nasen-Ratespiel für Kinder von 5 bis 12</h1>
 
 <section class="hero">
   <video src="fremdpopeln-werbung.mp4" poster="cover.png" controls autoplay muted loop playsinline aria-label="Werbevideo: Kinder sitzen lachend um einen Tisch, eines trägt eine Augenbinde und tastet eine Nase"></video>
