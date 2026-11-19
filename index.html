@@ -45,13 +45,8 @@ footer a { color: #ddd; }
     </ul>
     <div class="price-choice">
 <h2 style="font-size:1.2rem">Du bestimmst den Preis</h2>
-<label for="price-range">Preiswahl von 1 bis 10 Euro</label>
-<input id="price-range" type="range" min="1" max="10" step="0.5" value="3" style="display:block;width:100%">
-<label for="price-amount">Dein Preis in Euro</label>
-<input id="price-amount" type="number" min="1" step="0.01" value="3.00" inputmode="decimal" style="font:inherit;width:8rem;padding:.5rem">
-<p id="price-help">Mindestens 1 Euro. Im Eingabefeld sind auch Beträge über 10 Euro möglich. Für alle zehn Sprachen gilt derselbe Preis.</p>
-<p id="price-error" role="status" style="color:#a02020"></p>
-<a class="btn" href="https://www.paypal.com/ncp/payment/Z3GNGPXJG2MKJ" aria-describedby="checkout-note">🪙 Anleitung kaufen</a>
+<p id="price-help">Deinen Preis gibst du direkt bei PayPal ein: mindestens 1 Euro. Für alle zehn Sprachen gilt derselbe Preis.</p>
+<a class="btn" href="https://www.paypal.com/ncp/payment/Z3GNGPXJG2MKJ" aria-describedby="price-help checkout-note">🪙 Anleitung kaufen</a>
 <p id="checkout-note">Bezahlung über PayPal. Die PDF wird nach bestätigtem Zahlungseingang manuell per E-Mail an deine PayPal-Kontaktadresse versendet. Kein sofortiger Download. Fragen: info@fremdpopeln.de.</p>
 </div>
     <span class="price">PDF zum Ausdrucken, Versand per E-Mail nach Zahlungseingang</span>
@@ -64,19 +59,5 @@ footer a { color: #ddd; }
 const v = document.querySelector("video.bg"), t = document.getElementById("ton");
 t.addEventListener("click", () => { v.muted = !v.muted; if (!v.muted) v.play(); t.textContent = v.muted ? "🔇" : "🔊"; t.title = t.ariaLabel = v.muted ? "Ton einschalten" : "Ton ausschalten"; });
 </script>
-<script>
-const rangeInput = document.getElementById('price-range');
-const amountInput = document.getElementById('price-amount');
-const priceError = document.getElementById('price-error');
-rangeInput.addEventListener('input', () => {
-  amountInput.value = Number(rangeInput.value).toFixed(2);
-  priceError.textContent = '';
-});
-amountInput.addEventListener('input', () => {
-  const amount = amountInput.valueAsNumber;
-  const valid = Number.isFinite(amount) && amount >= 1 && amountInput.validity.valid;
-  priceError.textContent = valid ? '' : 'Bitte mindestens 1 Euro mit höchstens zwei Nachkommastellen eingeben.';
-  if (valid) rangeInput.value = Math.min(10, amount);
-});
-</script></body>
+</body>
 </html>
