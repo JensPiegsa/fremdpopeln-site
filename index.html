@@ -49,10 +49,10 @@ footer a { color: #ddd; }
 <input id="price-range" type="range" min="1" max="10" step="0.5" value="3" style="display:block;width:100%">
 <label for="price-amount">Dein Preis in Euro</label>
 <input id="price-amount" type="number" min="1" step="0.01" value="3.00" inputmode="decimal" style="font:inherit;width:8rem;padding:.5rem">
-<p id="price-help">Mindestens 1 Euro. Im Eingabefeld sind auch BetrÃ¤ge Ã¼ber 10 Euro mÃ¶glich. FÃ¼r alle zehn Sprachen gilt derselbe Preis.</p>
+<p id="price-help">Mindestens 1 Euro. Im Eingabefeld sind auch Beträge über 10 Euro möglich. Für alle zehn Sprachen gilt derselbe Preis.</p>
 <p id="price-error" role="status" style="color:#a02020"></p>
 <a class="btn" href="https://www.paypal.com/ncp/payment/Z3GNGPXJG2MKJ" aria-describedby="checkout-note">Anleitung kaufen</a>
-<p id="checkout-note">Bezahlung Ã¼ber PayPal. Die PDF wird nach bestÃ¤tigtem Zahlungseingang manuell per E-Mail an deine PayPal-Kontaktadresse versendet. Kein sofortiger Download. Fragen: info@fremdpopeln.de.</p>
+<p id="checkout-note">Bezahlung über PayPal. Die PDF wird nach bestätigtem Zahlungseingang manuell per E-Mail an deine PayPal-Kontaktadresse versendet. Kein sofortiger Download. Fragen: info@fremdpopeln.de.</p>
 </div>
     <span class="price">PDF zum Ausdrucken, Versand per E-Mail nach Zahlungseingang</span>
     <p class="langs" style="margin:.5rem 0 0">Deutsch · English · Français · Español · العربية · 中文 · हिन्दी · Português · Русский · Türkçe</p>
@@ -75,7 +75,7 @@ rangeInput.addEventListener('input', () => {
 amountInput.addEventListener('input', () => {
   const amount = amountInput.valueAsNumber;
   const valid = Number.isFinite(amount) && amount >= 1 && amountInput.validity.valid;
-  priceError.textContent = valid ? '' : 'Bitte mindestens 1 Euro mit hÃ¶chstens zwei Nachkommastellen eingeben.';
+  priceError.textContent = valid ? '' : 'Bitte mindestens 1 Euro mit höchstens zwei Nachkommastellen eingeben.';
   if (valid) rangeInput.value = Math.min(10, amount);
 });
 </script></body>
