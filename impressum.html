@@ -2,15 +2,47 @@
 <html lang="de">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Impressum – Fremdpopeln</title>
-<style>body{margin:0;background:#f5f7f5;color:#222;font:1rem/1.6 system-ui,sans-serif}main{max-width:44rem;margin:3rem auto;padding:1.5rem;background:white;border-radius:1rem}h1{color:#2a7a3b}a{color:#23662f}.notice{padding:1rem;border-left:4px solid #976400;background:#fff5dd}@media(max-width:600px){main{margin:1rem}}</style>
+<style>
+:root{color-scheme:light;--green:#236b35;--ink:#203027}
+*{box-sizing:border-box}
+body{margin:0;background:#edf4ef;color:var(--ink);font:1rem/1.65 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{width:min(100% - 2rem,45rem);margin:clamp(1rem,6vw,4rem) auto}
+a{color:var(--green);text-underline-offset:.2em}
+.back{display:inline-block;padding:.5rem 0;margin-bottom:1.2rem;font-weight:600}
+.card{background:#fff;border:1px solid #d6e3d9;border-radius:1.5rem;overflow:hidden;box-shadow:0 14px 45px #1839230d}
+header{padding:2rem;border-bottom:1px solid #e1eae3}
+.brand{margin:0 0 .6rem;color:var(--green);font-weight:750;letter-spacing:.08em}
+h1{display:flex;align-items:center;gap:.8rem;font-size:clamp(2rem,7vw,2.8rem);line-height:1.2;margin:0}
+.symbol{display:inline-grid;place-items:center;background:#e7f3e9;color:var(--green);width:3.5rem;height:3.5rem;border-radius:1rem;font-size:2.4rem}
+.content{padding:2rem}
+h2{font-size:1rem;margin:0 0 .5rem;color:#52645a;font-weight:600}
+.name{font-size:1.45rem;font-weight:700;margin:0}
+.city{margin:.15rem 0 1.6rem}
+.contact{display:flex;gap:1rem;align-items:center;padding:1.1rem;background:#f1f7f2;border-radius:1rem}
+.envelope{font-size:1.7rem;color:var(--green)}
+.label{display:block;font-weight:600}
+.contact a{overflow-wrap:anywhere}
+.notice{margin:1.8rem 0 0;padding:1rem 1.1rem;border-left:3px solid #b58a38;background:#fff8e9;border-radius:0 .6rem .6rem 0;color:#674f25}
+.notice strong{display:block}
+footer{padding:1rem;text-align:center;color:#52645a}
+a:focus-visible{outline:3px solid #236b35;outline-offset:4px}
+@media(max-width:480px){header,.content{padding:1.3rem}.contact{gap:.7rem}}
+</style>
 </head>
-<body><main>
-<a href="./">Zur Startseite</a>
-<h1><span aria-hidden="true">&sect;</span> Impressum</h1>
-<h2>Anbieter</h2>
-<p>Jens Piegsa</p><p><span aria-hidden="true">&#9993;</span> E-Mail: <a href="mailto:info@fremdpopeln.de">info@fremdpopeln.de</a></p>
-<p class="notice">Dieses Impressum ist derzeit unvollständig. Die postalische Anbieteranschrift wird ergänzt.</p>
-</main></body>
+<body>
+<main>
+<a class="back" href="./">Zur Startseite</a>
+<article class="card">
+<header><p class="brand">FREMDPOPELN.DE</p><h1><span class="symbol" aria-hidden="true">&sect;</span> Impressum</h1></header>
+<div class="content">
+<section aria-labelledby="provider"><h2 id="provider">Anbieter</h2><p class="name">Jens Piegsa</p><p class="city">Frankfurt am Main</p></section>
+<div class="contact"><span class="envelope" aria-hidden="true">&#9993;</span><div><span class="label">E-Mail:</span><a href="mailto:info@fremdpopeln.de">info@fremdpopeln.de</a></div></div>
+<p class="notice"><strong>Vorläufige Angaben</strong>Dieses Impressum ist noch unvollständig. Die vollständige postalische Anbieteranschrift wird ergänzt.</p>
+</div>
+</article>
+<footer>Fremdpopeln &middot; Das Nasen-Ratespiel</footer>
+</main>
+</body>
 </html>
