@@ -43,7 +43,17 @@ footer a { color: #ddd; }
       <li>🎂 Grundregeln ab 5, Zusatzregeln ab 9</li>
       <li>🌍 Anleitung in 10 Sprachen</li>
     </ul>
-    <span class="btn btn-off" aria-disabled="true" title="Bald verfügbar">🚧 🪙 Anleitung kaufen</span>
+    <div class="price-choice">
+<h2 style="font-size:1.2rem">Du bestimmst den Preis</h2>
+<label for="price-range">Preiswahl von 1 bis 10 Euro</label>
+<input id="price-range" type="range" min="1" max="10" step="0.5" value="3" style="display:block;width:100%">
+<label for="price-amount">Dein Preis in Euro</label>
+<input id="price-amount" type="number" min="1" step="0.01" value="3.00" inputmode="decimal" style="font:inherit;width:8rem;padding:.5rem">
+<p id="price-help">Mindestens 1 Euro. Im Eingabefeld sind auch BetrÃ¤ge Ã¼ber 10 Euro mÃ¶glich. FÃ¼r alle zehn Sprachen gilt derselbe Preis.</p>
+<p id="price-error" role="status" style="color:#a02020"></p>
+<button class="btn" type="button" disabled aria-describedby="checkout-note">Anleitung kaufen</button>
+<p id="checkout-note">Die Bezahlfunktion wird noch eingerichtet.</p>
+</div>
     <span class="price">Sofort zum Ausdrucken, eine A4-Seite pro Sprache</span>
     <p class="langs" style="margin:.5rem 0 0">Deutsch · English · Français · Español · العربية · 中文 · हिन्दी · Português · Русский · Türkçe</p>
   </section>
@@ -54,5 +64,19 @@ footer a { color: #ddd; }
 const v = document.querySelector("video.bg"), t = document.getElementById("ton");
 t.addEventListener("click", () => { v.muted = !v.muted; if (!v.muted) v.play(); t.textContent = v.muted ? "🔇" : "🔊"; t.title = t.ariaLabel = v.muted ? "Ton einschalten" : "Ton ausschalten"; });
 </script>
-</body>
+<script>
+const rangeInput = document.getElementById('price-range');
+const amountInput = document.getElementById('price-amount');
+const priceError = document.getElementById('price-error');
+rangeInput.addEventListener('input', () => {
+  amountInput.value = Number(rangeInput.value).toFixed(2);
+  priceError.textContent = '';
+});
+amountInput.addEventListener('input', () => {
+  const amount = amountInput.valueAsNumber;
+  const valid = Number.isFinite(amount) && amount >= 1 && amountInput.validity.valid;
+  priceError.textContent = valid ? '' : 'Bitte mindestens 1 Euro mit hÃ¶chstens zwei Nachkommastellen eingeben.';
+  if (valid) rangeInput.value = Math.min(10, amount);
+});
+</script></body>
 </html>
